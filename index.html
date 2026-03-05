@@ -14,36 +14,72 @@
       --text:#eaf1ff;
       --brand:#f6c34a;
       --brand2:#3aa0ff;
-      --line:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.10);
       --ok:#31d0aa;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background: radial-gradient(900px 500px at 15% 10%, rgba(58,160,255,.20), transparent 60%),
-                  radial-gradient(900px 500px at 85% 15%, rgba(246,195,74,.18), transparent 60%),
-                  var(--bg);
+      background: var(--bg);
       color:var(--text);
       line-height:1.5;
     }
     a{color:inherit}
-    .wrap{max-width:1100px; margin:0 auto; padding:22px}
+    .wrap{max-width:1120px; margin:0 auto; padding:22px}
+
+    /* Sections très différenciées */
+    .section{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      margin: 14px 0;
+    }
+    .section .inner{padding:22px}
+    .s1{
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(58,160,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 15%, rgba(246,195,74,.18), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+    }
+    .s2{
+      background:
+        radial-gradient(900px 520px at 15% 85%, rgba(49,208,170,.16), transparent 60%),
+        radial-gradient(900px 520px at 85% 20%, rgba(58,160,255,.15), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.012));
+    }
+    .s3{
+      background:
+        radial-gradient(900px 520px at 50% 0%, rgba(246,195,74,.14), transparent 60%),
+        radial-gradient(900px 520px at 50% 100%, rgba(58,160,255,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+    }
+
+    /* Header */
     header{
       display:flex; align-items:center; justify-content:space-between; gap:14px;
       padding:10px 0 18px;
     }
     .logo{
-      display:flex; align-items:center; gap:10px; text-decoration:none;
+      display:flex; align-items:center; gap:12px; text-decoration:none;
       font-weight:800; letter-spacing:.2px;
     }
-    .mark{
-      width:40px; height:40px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(58,160,255,.95), rgba(246,195,74,.95));
+    .logoMark{
+      width:40px; height:40px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
       display:grid; place-items:center;
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
-      font-weight:900; color:#0b1220;
+      box-shadow: 0 12px 30px rgba(0,0,0,.30);
+      overflow:hidden;
     }
+    .logoMark img{width:100%; height:100%; object-fit:cover}
+
     .pill{
       display:inline-flex; gap:8px; align-items:center;
       padding:10px 14px; border-radius:999px;
@@ -52,6 +88,7 @@
       color:var(--muted);
       text-decoration:none;
       font-size:14px;
+      white-space:nowrap;
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -59,30 +96,33 @@
       border:1px solid var(--line);
       background:rgba(255,255,255,.04);
       text-decoration:none;
-      font-weight:700;
+      font-weight:800;
+      white-space:nowrap;
     }
     .btn.primary{
       background: linear-gradient(135deg, rgba(246,195,74,.95), rgba(58,160,255,.92));
       border:none; color:#0b1220;
       box-shadow:0 18px 40px rgba(0,0,0,.35);
     }
+
+    /* Hero layout */
     .hero{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
-      gap:20px;
+      gap:18px;
       align-items:stretch;
-      padding:14px 0 6px;
     }
     @media (max-width: 900px){
       .hero{grid-template-columns:1fr}
     }
+
     .panel{
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border-radius:18px;
-      padding:22px;
-      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      background: rgba(15,27,51,.45);
+      border-radius:16px;
+      padding:18px;
     }
+
     .kicker{
       display:inline-flex; gap:8px; align-items:center;
       padding:8px 12px; border-radius:999px;
@@ -91,28 +131,23 @@
       color:var(--muted);
       font-size:13px;
     }
-    h1{margin:14px 0 10px; font-size:44px; line-height:1.08}
-    @media (max-width: 900px){h1{font-size:36px}}
+
+    h1{margin:14px 0 10px; font-size:44px; line-height:1.06}
+    @media (max-width: 900px){h1{font-size:34px}}
+    h2{margin:0; font-size:22px}
     .accent{color:var(--brand)}
-    .lead{color:var(--muted); font-size:16px; margin:0 0 18px}
-    .stack{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 0}
-    .mini{
-      display:flex; gap:10px; align-items:flex-start;
-      border:1px solid var(--line);
-      background: rgba(15,27,51,.55);
-      border-radius:14px;
-      padding:14px;
+    .lead{color:var(--muted); font-size:16px; margin:0 0 14px}
+
+    .cta{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:14px;
     }
-    .mini b{display:block; margin-bottom:4px}
-    .icon{
-      width:28px; height:28px; border-radius:10px;
-      display:grid; place-items:center;
-      background:rgba(58,160,255,.18);
-      border:1px solid rgba(58,160,255,.22);
-      flex:0 0 auto;
+    .badge{
+      font-size:12px; color:#0b1220; font-weight:900;
+      background:var(--brand);
+      padding:4px 10px; border-radius:999px;
     }
-    .icon.gold{background:rgba(246,195,74,.16); border-color:rgba(246,195,74,.22)}
-    .icon.ok{background:rgba(49,208,170,.14); border-color:rgba(49,208,170,.20)}
+    .note{font-size:13px; color:var(--muted); margin-top:10px}
+
     .list{margin:14px 0 0; padding:0; list-style:none; display:grid; gap:10px}
     .list li{
       display:flex; gap:10px; align-items:flex-start;
@@ -121,16 +156,29 @@
       background: rgba(255,255,255,.02);
       color:var(--muted);
     }
-    .badge{
-      font-size:12px; color:#0b1220; font-weight:800;
-      background:var(--brand);
-      padding:4px 10px; border-radius:999px;
+
+    .icon{
+      width:28px; height:28px; border-radius:10px;
+      display:grid; place-items:center;
+      background:rgba(58,160,255,.18);
+      border:1px solid rgba(58,160,255,.22);
+      flex:0 0 auto;
+      font-weight:900;
     }
-    .cta{
-      display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:16px;
+    .icon.gold{background:rgba(246,195,74,.16); border-color:rgba(246,195,74,.22)}
+    .icon.ok{background:rgba(49,208,170,.14); border-color:rgba(49,208,170,.22)}
+
+    .stack{display:grid; gap:10px; margin-top:12px}
+    .mini{
+      display:flex; gap:10px; align-items:flex-start;
+      border:1px solid var(--line);
+      background: rgba(15,27,51,.55);
+      border-radius:14px;
+      padding:14px;
     }
-    .note{font-size:13px; color:var(--muted); margin-top:10px}
-    section{padding:18px 0}
+    .mini b{display:block; margin-bottom:4px}
+
+    /* Section 2 cards */
     .grid3{
       display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
     }
@@ -141,14 +189,47 @@
       background: rgba(255,255,255,.02);
       padding:18px;
     }
-    .card h3{margin:0 0 8px}
+    .card h3{margin:0 0 8px; font-size:18px}
     .card p{margin:0; color:var(--muted)}
+    .sepTitle{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:14px;
+    }
+    .bar{
+      height:1px; flex:1;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+      border-radius:999px;
+    }
+    .tag{
+      font-size:12px;
+      color: var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    /* Footer */
     footer{
-      padding:26px 0 40px;
+      margin-top:18px;
+      padding:18px 0 34px;
       color:var(--muted);
       font-size:13px;
       border-top:1px solid var(--line);
-      margin-top:10px;
+    }
+    .footerRow{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+      flex-wrap:wrap;
+    }
+    .footerBrand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .footerBrand img{
+      width:40px; height:40px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      object-fit:cover;
     }
     .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
   </style>
@@ -156,9 +237,12 @@
 
 <body>
   <div class="wrap">
+
     <header>
       <a class="logo" href="#">
-        <span class="mark">X</span>
+        <span class="logoMark">
+          <img src="assets/logo-convexa.png" alt="Logo Convexa">
+        </span>
         <span>Convexa</span>
       </a>
 
@@ -168,90 +252,140 @@
       </div>
     </header>
 
-    <div class="hero">
-      <div class="panel">
-        <span class="kicker">🚀 Landing Pages & Tunnels de vente • orientés conversion</span>
+    <!-- SECTION 1 : HERO / PROBLÈME -->
+    <div class="section s1">
+      <div class="inner">
+        <div class="hero">
+          <div class="panel">
+            <span class="kicker">🚀 Landing Pages & Tunnels de vente • orientés conversion</span>
 
-        <h1>Convexa Agence Marketing</h1>
-        <h1>
-          Votre offre est bonne…<br/>
-          mais <span class="accent">elle ne vend pas</span> ?
-        </h1>
+            <h1>
+              Convexa Agence Marketing<br/>
+              Votre offre est bonne… mais <span class="accent">elle ne vend pas</span> ?
+            </h1>
 
-        <p class="lead">
-          Très souvent, le problème n’est pas le produit — c’est la page.
-          Chez <b>Convexa</b>, on construit des pages claires, crédibles, et actionnables
-          pour transformer vos visiteurs en clients.
-        </p>
+            <p class="lead">
+              Très souvent, le problème n’est pas le produit — c’est la page.
+              Chez <b>Convexa</b>, on construit des pages claires, crédibles et actionnables
+              pour transformer vos visiteurs en clients.
+            </p>
 
-        <div class="cta">
-          <a class="btn primary" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">📩 DM “AUDIT” (gratuit)</a>
-          <a class="btn" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">Voir mes services ComeUp</a>
-          <span class="badge">Réponse rapide</span>
-        </div>
+            <div class="cta">
+              <a class="btn primary" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">📩 DM “AUDIT” (gratuit)</a>
+              <a class="btn" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">Voir mes services ComeUp</a>
+              <span class="badge">Réponse rapide</span>
+            </div>
 
-        <p class="note">
-          Astuce : envoyez simplement <b>AUDIT</b> en DM → je vous réponds avec 3 améliorations immédiates.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h2 style="margin:0 0 10px; font-size:20px;">Ce qui bloque 90% des pages</h2>
-        <ul class="list">
-          <li><span class="icon gold">✗</span><div><b>Message confus</b>On ne comprend pas la valeur en 5 secondes.</div></li>
-          <li><span class="icon gold">✗</span><div><b>Mauvais appel à l’action</b>Le visiteur ne sait pas quoi faire ensuite.</div></li>
-          <li><span class="icon gold">✗</span><div><b>Pas de structure</b>Pas de preuve, pas de confiance, pas de conversion.</div></li>
-        </ul>
-
-        <div class="stack">
-          <div class="mini">
-            <span class="icon ok">✓</span>
-            <div><b>Une bonne landing page</b><span style="color:var(--muted)">capte l’attention → rassure → guide → convertit.</span></div>
+            <p class="note">
+              Astuce : envoyez simplement <b>AUDIT</b> en DM → je vous réponds avec 3 améliorations immédiates.
+            </p>
           </div>
-          <div class="mini">
-            <span class="icon">⚡</span>
-            <div><b>Audit gratuit</b><span style="color:var(--muted)">3 recommandations concrètes sur votre page actuelle.</span></div>
+
+          <div class="panel">
+            <div class="sepTitle">
+              <h2>Ce qui bloque 90% des pages</h2>
+              <span class="tag">Problèmes fréquents</span>
+            </div>
+
+            <ul class="list">
+              <li><span class="icon gold">✗</span><div><b>Message confus</b>On ne comprend pas la valeur en 5 secondes.</div></li>
+              <li><span class="icon gold">✗</span><div><b>Mauvais appel à l’action</b>Le visiteur ne sait pas quoi faire ensuite.</div></li>
+              <li><span class="icon gold">✗</span><div><b>Pas de structure</b>Pas de preuve, pas de confiance, pas de conversion.</div></li>
+            </ul>
+
+            <div class="stack">
+              <div class="mini">
+                <span class="icon ok">✓</span>
+                <div><b>Une bonne landing page</b><span style="color:var(--muted)">capte l’attention → rassure → guide → convertit.</span></div>
+              </div>
+              <div class="mini">
+                <span class="icon">⚡</span>
+                <div><b>Audit gratuit</b><span style="color:var(--muted)">3 recommandations concrètes sur votre page actuelle.</span></div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
 
-    <section>
-      <div class="grid3">
-        <div class="card">
-          <h3>✅ Landing Page</h3>
-          <p>Une page claire et persuasive pour convertir plus (mobile-first).</p>
+    <!-- SECTION 2 : OFFRES / SERVICES -->
+    <div class="section s2">
+      <div class="inner">
+        <div class="sepTitle">
+          <h2>Ce que je mets en place pour convertir</h2>
+          <div class="bar"></div>
+          <span class="tag">3 offres simples</span>
         </div>
-        <div class="card">
-          <h3>✅ Tunnel simple</h3>
-          <p>Un parcours court : promesse → preuve → action (WhatsApp / Formulaire).</p>
-        </div>
-        <div class="card">
-          <h3>✅ Optimisation</h3>
-          <p>Améliorations rapides : texte, structure, CTA, confiance, vitesse.</p>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>✅ Landing Page</h3>
+            <p>Une page claire et persuasive pour convertir plus (mobile-first).</p>
+          </div>
+          <div class="card">
+            <h3>✅ Tunnel simple</h3>
+            <p>Un parcours court : promesse → preuve → action (WhatsApp / Formulaire).</p>
+          </div>
+          <div class="card">
+            <h3>✅ Optimisation</h3>
+            <p>Améliorations rapides : texte, structure, CTA, confiance, vitesse.</p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="panel">
-      <h2 style="margin:0 0 10px; font-size:22px;">Prêt à convertir plus ?</h2>
-      <p class="lead" style="margin-bottom:14px;">
-        Envoyez <b>AUDIT</b> en DM sur Instagram et je vous réponds avec une mini-analyse gratuite.
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">📩 DM “AUDIT”</a>
-        <a class="btn" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">Services ComeUp</a>
+    <!-- SECTION 3 : CTA FINAL -->
+    <div class="section s3">
+      <div class="inner">
+        <div class="sepTitle">
+          <h2>Prêt à convertir plus ?</h2>
+          <span class="tag">Mini-audit offert</span>
+        </div>
+
+        <p class="lead" style="margin-bottom:14px;">
+          Envoyez <b>AUDIT</b> en DM sur Instagram et je vous réponds avec une mini-analyse gratuite.
+          (3 points concrets à améliorer + recommandation rapide)
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">📩 DM “AUDIT”</a>
+          <a class="btn" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">Services ComeUp</a>
+        </div>
+
+        <p class="note">Convexa • Landing Pages & Conversion — simple, clair, efficace.</p>
       </div>
-      <p class="note">Convexa • Landing Pages & Conversion — simple, clair, efficace.</p>
-    </section>
+    </div>
 
+    <!-- FOOTER avec logo + réseaux -->
     <footer>
-      <div><b>Convexa</b> — Agence Marketing (Landing Pages & Tunnels de vente orientés conversion)</div>
-      <div class="links">
-        <a class="pill" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">Instagram</a>
-        <a class="pill" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">ComeUp</a>
+      <div class="footerRow">
+        <div>
+          <div class="footerBrand">
+            <img src="assets/logo-convexa.png" alt="Logo Convexa">
+            <div>
+              <div><b>Convexa</b> — Agence Marketing</div>
+              <div>Landing Pages & Tunnels de vente orientés conversion</div>
+            </div>
+          </div>
+
+          <div class="links">
+            <a class="pill" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">Instagram</a>
+            <a class="pill" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">ComeUp</a>
+
+            <!-- Remplace ces liens par les tiens -->
+            <a class="pill" href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+            <a class="pill" href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <div style="max-width:360px;">
+          <div><b>Contact rapide</b></div>
+          <div style="margin-top:6px;">Réponse rapide sur Instagram (mot-clé : <b>AUDIT</b>).</div>
+        </div>
       </div>
     </footer>
+
   </div>
 </body>
 </html>
