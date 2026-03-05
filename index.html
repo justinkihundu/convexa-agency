@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Convexa — Landing Pages & Conversion</title>
+  <meta name="description" content="Convexa aide les coachs et entrepreneurs à convertir plus avec des landing pages & tunnels de vente orientés conversion. Audit gratuit : DM 'AUDIT'." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --muted:#9fb2d6;
+      --text:#eaf1ff;
+      --brand:#f6c34a;
+      --brand2:#3aa0ff;
+      --line:rgba(255,255,255,.08);
+      --ok:#31d0aa;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: radial-gradient(900px 500px at 15% 10%, rgba(58,160,255,.20), transparent 60%),
+                  radial-gradient(900px 500px at 85% 15%, rgba(246,195,74,.18), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px; margin:0 auto; padding:22px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:10px 0 18px;
+    }
+    .logo{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .mark{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(58,160,255,.95), rgba(246,195,74,.95));
+      display:grid; place-items:center;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      font-weight:900; color:#0b1220;
+    }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(246,195,74,.95), rgba(58,160,255,.92));
+      border:none; color:#0b1220;
+      box-shadow:0 18px 40px rgba(0,0,0,.35);
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:20px;
+      align-items:stretch;
+      padding:14px 0 6px;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .panel{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border-radius:18px;
+      padding:22px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
+    }
+    h1{margin:14px 0 10px; font-size:44px; line-height:1.08}
+    @media (max-width: 900px){h1{font-size:36px}}
+    .accent{color:var(--brand)}
+    .lead{color:var(--muted); font-size:16px; margin:0 0 18px}
+    .stack{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 0}
+    .mini{
+      display:flex; gap:10px; align-items:flex-start;
+      border:1px solid var(--line);
+      background: rgba(15,27,51,.55);
+      border-radius:14px;
+      padding:14px;
+    }
+    .mini b{display:block; margin-bottom:4px}
+    .icon{
+      width:28px; height:28px; border-radius:10px;
+      display:grid; place-items:center;
+      background:rgba(58,160,255,.18);
+      border:1px solid rgba(58,160,255,.22);
+      flex:0 0 auto;
+    }
+    .icon.gold{background:rgba(246,195,74,.16); border-color:rgba(246,195,74,.22)}
+    .icon.ok{background:rgba(49,208,170,.14); border-color:rgba(49,208,170,.20)}
+    .list{margin:14px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .list li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color:var(--muted);
+    }
+    .badge{
+      font-size:12px; color:#0b1220; font-weight:800;
+      background:var(--brand);
+      padding:4px 10px; border-radius:999px;
+    }
+    .cta{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:16px;
+    }
+    .note{font-size:13px; color:var(--muted); margin-top:10px}
+    section{padding:18px 0}
+    .grid3{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+    }
+    @media (max-width: 900px){.grid3{grid-template-columns:1fr}}
+    .card{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.02);
+      padding:18px;
+    }
+    .card h3{margin:0 0 8px}
+    .card p{margin:0; color:var(--muted)}
+    footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--line);
+      margin-top:10px;
+    }
+    .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#">
+        <span class="mark">X</span>
+        <span>Convexa</span>
+      </a>
+
+      <div class="links">
+        <a class="pill" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">Profil ComeUp</a>
+        <a class="btn primary" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">DM “AUDIT”</a>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="panel">
+        <span class="kicker">🚀 Landing Pages & Tunnels de vente • orientés conversion</span>
+
+        <h1>
+          Votre offre est bonne…<br/>
+          mais <span class="accent">elle ne vend pas</span> ?
+        </h1>
+
+        <p class="lead">
+          Très souvent, le problème n’est pas le produit — c’est la page.
+          Chez <b>Convexa</b>, on construit des pages claires, crédibles, et actionnables
+          pour transformer vos visiteurs en clients.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">📩 DM “AUDIT” (gratuit)</a>
+          <a class="btn" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">Voir mes services ComeUp</a>
+          <span class="badge">Réponse rapide</span>
+        </div>
+
+        <p class="note">
+          Astuce : envoyez simplement <b>AUDIT</b> en DM → je vous réponds avec 3 améliorations immédiates.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2 style="margin:0 0 10px; font-size:20px;">Ce qui bloque 90% des pages</h2>
+        <ul class="list">
+          <li><span class="icon gold">✗</span><div><b>Message confus</b>On ne comprend pas la valeur en 5 secondes.</div></li>
+          <li><span class="icon gold">✗</span><div><b>Mauvais appel à l’action</b>Le visiteur ne sait pas quoi faire ensuite.</div></li>
+          <li><span class="icon gold">✗</span><div><b>Pas de structure</b>Pas de preuve, pas de confiance, pas de conversion.</div></li>
+        </ul>
+
+        <div class="stack">
+          <div class="mini">
+            <span class="icon ok">✓</span>
+            <div><b>Une bonne landing page</b><span style="color:var(--muted)">capte l’attention → rassure → guide → convertit.</span></div>
+          </div>
+          <div class="mini">
+            <span class="icon">⚡</span>
+            <div><b>Audit gratuit</b><span style="color:var(--muted)">3 recommandations concrètes sur votre page actuelle.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="grid3">
+        <div class="card">
+          <h3>✅ Landing Page</h3>
+          <p>Une page claire et persuasive pour convertir plus (mobile-first).</p>
+        </div>
+        <div class="card">
+          <h3>✅ Tunnel simple</h3>
+          <p>Un parcours court : promesse → preuve → action (WhatsApp / Formulaire).</p>
+        </div>
+        <div class="card">
+          <h3>✅ Optimisation</h3>
+          <p>Améliorations rapides : texte, structure, CTA, confiance, vitesse.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 style="margin:0 0 10px; font-size:22px;">Prêt à convertir plus ?</h2>
+      <p class="lead" style="margin-bottom:14px;">
+        Envoyez <b>AUDIT</b> en DM sur Instagram et je vous réponds avec une mini-analyse gratuite.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">📩 DM “AUDIT”</a>
+        <a class="btn" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">Services ComeUp</a>
+      </div>
+      <p class="note">Convexa • Landing Pages & Conversion — simple, clair, efficace.</p>
+    </section>
+
+    <footer>
+      <div><b>Convexa</b> — Agence Marketing (Landing Pages & Tunnels de vente orientés conversion)</div>
+      <div class="links">
+        <a class="pill" href="https://instagram.com/convexa_agency" target="_blank" rel="noopener">Instagram</a>
+        <a class="pill" href="https://comeup.com/fr/@justinkihundu" target="_blank" rel="noopener">ComeUp</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
